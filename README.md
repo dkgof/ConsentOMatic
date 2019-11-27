@@ -273,7 +273,7 @@ Example:
 {
    "type": "foreach",
    "target": {
-      "selector", ".loopElement"
+      "selector": ".loopElement"
    },
    "action": {}
 }
@@ -295,8 +295,36 @@ Example:
 
 ## Matchers
 
+Matchers are used to check for the presence of some DOM selection, or the state of some DOM selection.
+
 ### Css
+
+This matcher checks for the presence of a DOM selection, and return that it matches if it exists.
+
+Example:
+```json
+{
+   "type": "css",
+   "target": {
+      "selector": ".myMatchingClass"
+   }
+}
+```
 
 ### Checkbox
 
+This matcher checks the state of an `<input type='checkbox' />` and returns that it matches if the checkbox is checked.
+
+Example:
+```json
+{
+   "type": "checkbox",
+   "target": {
+      "selector": ".myInputCheckbox"
+   }
+}
+```
+
 ## Consent
+
+The consent is what is used inside [Consent Action](#
