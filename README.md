@@ -246,9 +246,52 @@ Example:
 
 ### Wait For Css
 
+This action waits until the DOM selector finds a dom element that matches. Mostly used if something in the consent form loads slowly and needs to be waited for.
+
+Example:
+```json
+{
+   "type": "waitcss",
+   "target": {
+      "selector": ".myWaitTarget"
+   },
+   "retries": 10,
+   "waitTime": 200
+}
+```
+
+`retries` is the number of times to check for the target dom element. Deafults to 10.
+
+`waitTime` determines the time between retry attempts. Defaults to 250.
+
 ### For Each
 
+If some set of actions needs to be run several times, but with different DOM nodes as root, the for each action can be used. It runs its action 1 time for each DOM element that is selected by its DOM selection, all actions run inside the for each loop, will see the DOM as starting from the currently selected node.
+
+Example:
+```json
+{
+   "type": "foreach",
+   "target": {
+      "selector", ".loopElement"
+   },
+   "action": {}
+}
+```
+
+`action` is the action to run for each found DOM element.
+
 ### Hide
+
+This action sets css property `display` to `none` on the DOM selection.
+
+Example:
+```json
+{
+   "type": "hide",
+   "target": ".myHiddenClass"
+}
+```
 
 ## Matchers
 
