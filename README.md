@@ -2,8 +2,8 @@
 
 * [Introduction](#introduction)
 * [Basic Structure](#basic-structure)
-* [Detectors](#detectors)
-* [Methods](#methods)
+    * [Detectors](#detectors)
+    * [Methods](#methods)
 * [DOM Selection](#dom-selection)
 * [Actions](#actions)
     * [Click](#click)
@@ -100,23 +100,23 @@ Most actions and matchers have some target that they apply to. For this reason C
 }
 ```
 
-There are 2 parts, `parent` and `target`. The `parent` is optional, if it exists it will be resolved first, and used as the starting point for `target`.
+There are 2 parts, `parent` and `target`. The `parent` is optional but if it exists it will be resolved first, and used as the starting point for `target`. This allows you to construct very complicated selections of elements that wouldn't otherwise be possible with a single plain CSS selector.
 
 All the parameters to `parent` and `target` except `selector` are optional.
 
-The selection method works by using the css selector from `selector` and then filtering the resulting DOM nodes via the various filters:
+The selection method works by using the css selector from `selector` and then filtering the resulting DOM nodes via the various available filters:
 
-`textFilter` filters all nodes that does not include the given text. It can also be given as an array `"textFilter":["filter1", "filter2"]` and then it filters all nodes that does not include one of the given text filters.
+* `textFilter` filters all nodes that does not include the given text. It can also be given as an array `"textFilter":["filter1", "filter2"]` and then it filters all nodes that does not include one of the given text filters.
 
-`styleFilter` filters based on computedStyles. `option` is the style option to compare for example `position`, `value` is the value to compare against and `negated` sets if the option value should match or not match the given value.
+* `styleFilter` filters based on computedStyles. `option` is the style option to compare for example `position`, `value` is the value to compare against and `negated` sets if the option value should match or not match the given value.
 
-`displayFilter` can be used to filter nodes based on if they are display hidden or not.
+* `displayFilter` can be used to filter nodes based on if they are display hidden or not.
 
-`iframeFilter` filters nodes based on if they are inside an iframe or not.
+* `iframeFilter` filters nodes based on if they are inside an iframe or not.
 
-`childFilter` is a fully new DOM selection, that then filters on the original selection, based on if a selection was made by `childFilter` or not.
+* `childFilter` is a fully new DOM selection, that then filters on the original selection, based on if a selection was made by `childFilter` or not.
 
-Lets make an example dom selection:
+Here is an example DOM selection:
 ```json
 "parent": {
    "selector": ".myParent",
@@ -132,7 +132,7 @@ Lets make an example dom selection:
    "selector": ".myTarget"
 }
 ```
-This selector first tries to find the `parent` chich is a DOM element with the class `myParent` that is inside an iframe and has a child DOM element with the class `myChild` that contains the text "Gregor".
+This selector first tries to find the `parent` which is a DOM element with the class `myParent` that is inside an iframe and has a child DOM element with the class `myChild` that contains the text "Gregor".
 
 Then using this parent as "root" it tries to find a DOM element with the class `myTarget`.
 
