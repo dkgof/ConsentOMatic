@@ -155,9 +155,35 @@ Example:
 }
 ```
 
+In this example we only use a simple `target` with a `textFilter` but full [DOM selection](#dom-selection) is supported.
+
 ### List
 
+This action runs a list of actions in order.
+
+Example:
+```json
+{
+   "type": "list",
+   "actions": []
+}
+```
+
+`actions` is an array of actions that will all be run in order.
+
 ### Consent
+
+The consent action takes an array of consents, and tries to apply the users consent selections.
+
+Toggle example:
+```json
+{
+   "type": "consent",
+   "consents": []
+}
+```
+
+`consents` is an array of [Consent](#consent) types
 
 ### Slide
 
