@@ -213,6 +213,8 @@ Example:
 
 `axis` selects if the slider should go horizontal "x" or vertical "y".
 
+The slide event will simulate that the mouse dragged `target` the distance from `target` to `dragTarget` on the given `axis`.
+
 ### If Css
 
 ### Wait For Css
