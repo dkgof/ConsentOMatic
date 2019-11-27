@@ -114,7 +114,7 @@ The selection method works by using the css selector from `selector` and then fi
 
 `iframeFilter` filters nodes based on if they are inside an iframe or not.
 
-`childFilter` uses the same format as `parent` or `target` and is used to check that a specific child node exists, if not the current node is filtered.
+`childFilter` is a fully new DOM selection, that then filters on the original selection, based on if a selection was made by `childFilter` or not.
 
 Lets make an example dom selection:
 ```json
@@ -122,8 +122,10 @@ Lets make an example dom selection:
    "selector": ".myParent",
    "iframeFilter": true,
    "childFilter": {
-      "selector": ".myChild",
-      "textFilter": "Gregor"
+      "target": {
+         "selector": ".myChild",
+         "textFilter": "Gregor"
+      }
    }
 },
 "target": {
@@ -175,7 +177,7 @@ Example:
 
 The consent action takes an array of consents, and tries to apply the users consent selections.
 
-Toggle example:
+Example:
 ```json
 {
    "type": "consent",
@@ -186,6 +188,30 @@ Toggle example:
 `consents` is an array of [Consent](#consent) types
 
 ### Slide
+
+Some consent forms use a slider to set a consent level, this action supports simulating sliding with such a slider.
+
+Example:
+```json
+{
+   "type": "slide",
+   "target": {
+      "selector": ".mySliderKnob"
+   },
+   "dragTarget": {
+      "target": {
+         "selector": ".myChoosenOption"
+      }
+   },
+   "axis": "y"
+}
+```
+
+`target` is the target DOM element to simulate the slide motion on.
+
+`dragTarget` is the DOM element to use for slide distance.
+
+`axis` selects if the slider should go horizontal "x" or vertical "y".
 
 ### If Css
 
