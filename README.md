@@ -17,7 +17,7 @@
 * [Matchers](#matchers)
     * [Css](#css)
     * [Checkbox](#checkbox)
-* [Consent](#consent)
+* [Consent](#consent-1)
 
 ## Introduction
 
@@ -327,4 +327,4 @@ Example:
 
 ## Consent
 
-The consent is what is used inside [Consent Action](#
+The consent is what is used inside [Consent Action](#consent)
