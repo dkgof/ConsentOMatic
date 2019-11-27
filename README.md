@@ -22,6 +22,24 @@
 
 ## Basic Structure
 
+A rule list for Consent-O-Matic is a JSON structure that contains the rules for detecting a consent form.
+It contains 2 parts, detectors and methods.
+
+```json
+{
+   "detectors": [
+      {
+         //Some detector
+      }
+   ],
+   "methods": [
+      {
+         //Some method
+      }
+   ]
+}
+```
+
 ## Detectors
 
 ## Methods
