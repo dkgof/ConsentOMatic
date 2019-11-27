@@ -1,6 +1,6 @@
 # Consent-O-Matic
 
-* Introduction
+* [Introduction](#introduction)
 * Basic Structure
 * Detectors
 * Methods
