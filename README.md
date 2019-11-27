@@ -41,7 +41,7 @@ Detectors are the part that detects if a certain rule set should be applied. Bas
 Detector structure:
 ```json
 {
-   "presentMatcher": {}
+   "presentMatcher": {},
    "showingMatcher": {}
 }
 ```
@@ -57,6 +57,16 @@ Both the present and showing matcher are of type [`Matcher`](#matchers).
 There are 3 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`
 
 All the methods are optional, and if present the methods will be run in the order given above, when a detector is triggered.
+
+Methods take on the form:
+```json
+{
+   "name": "",
+   "action": {}
+}
+```
+
+Where the name is one of the 3 supported methods, and action is the action to execute.
 
 ## Actions
 
