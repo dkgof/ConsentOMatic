@@ -217,6 +217,33 @@ The slide event will simulate that the mouse dragged `target` the distance from 
 
 ### If Css
 
+This action is used as control flow, running another action depending on of a DOM selection finds an element or not.
+
+Example:
+```json
+{
+   "type": "ifcss",
+   "target": {
+      "selector": "",
+   },
+   "trueAction": {
+      "type": "click",
+      "target": {
+         "selector": ".myTrueButton"
+      }  
+   },
+   "falseAction": {
+      "type": "click",
+      "target": {
+         "selector": ".myFalseButton"
+      }
+   }
+}
+```
+
+`trueAction` is an action that will be run of the DOM selection finds an element.
+`falseAction` will be run when the DOM selection does not find an element.
+
 ### Wait For Css
 
 ### For Each
