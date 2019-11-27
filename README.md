@@ -327,4 +327,29 @@ Example:
 
 ## Consent
 
-The consent is what is used inside [Consent Action](#consent)
+This is what is used inside [Consent Actions](#consent) and defines the actual consent that the user should be giving or not giving.
+
+Each consent has a type, that matches the consent categories inside Consent-O-Matic, so if a user has toggled the first consent category to ON, (Type A) and the consent is of type "A", then the consent will be enabled.
+
+Usually the consent is given either as a toggle, or a set of buttons on/off. Therefor `consent` has mechanism for both these cases.
+
+Example:
+```json
+{
+   "type": "A",
+   "toggleAction": {},
+   "matcher": {},
+   "trueAction": {},
+   "falseAction": {}
+}
+```
+
+`type` is the type of consent category this rule defines and determines if this consent should be on or off depending on the users selection for that type of category.
+
+`toggleAction` this action is used to select consent if a toggle type, for example a switch. The action will be run if the matcher says the consent is in a state different from what the user has asked it to be, otherwise it will not be run.
+
+`matcher` is the matcher used to check which state the consent is in. For a [checkbox matcher](#checkbox), the consent is given if the checkbox is checked. For a [css matcher](#css) the consent is given if the matcher finds a DOM selection.
+
+`trueAction` and `falseAction` are the actions used of the consent is given by pressing one of 2 buttons, and is not toggled. These will be run dependning on the users selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
+
+If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
