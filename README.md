@@ -24,18 +24,18 @@
 ## Basic Structure
 
 A rule list for Consent-O-Matic is a JSON structure that contains the rules for detecting a CMP (Consent Management Provider), and
-dealing with the CMP popup if its detected.
+dealing with the CMP popup when it is detected.
 
 It contains 2 parts, `detectors` and `methods`.
 
-```json
+```
 {
-   "detectors": [],
+   "detectors": [...],
    "methods": []
 }
 ```
 
-## Detectors
+### Detectors
 
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
 
