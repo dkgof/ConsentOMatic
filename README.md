@@ -30,8 +30,8 @@ It contains 2 parts, `detectors` and `methods`.
 
 ```
 {
-   "detectors": [...],
-   "methods": []
+   "detectors": [ ... ],
+   "methods": [ ... ]
 }
 ```
 
@@ -40,30 +40,30 @@ It contains 2 parts, `detectors` and `methods`.
 Detectors are the part that detects if a certain rule set should be applied. Basically, if a detector triggers, the methods will be applied.
 
 Detector structure:
-```json
+```
 {
-   "presentMatcher": {},
-   "showingMatcher": {}
+   "presentMatcher": { ... },
+   "showingMatcher": { ... }
 }
 ```
 
 The present matcher is used to detect if the CMP is present on the page.
 
-Some CMP's still insert into the DOM when revisiting a page you have already consented to earlier, and therefor we only want to handle the consent form if its actually showing on the page. This is what the showing matcher is used for.
+Some CMPs still insert the popup HTML into the DOM even when re-visiting a page where you have already given consent earlier. We only want to handle the consent form if its actually showing on the page. This is what the showing matcher is used for.
 
-Both the present and showing matcher are of type [`Matcher`](#matchers).
+Both the present and showing matcher follow the common structure of [`Matchers`](#matchers).
 
-## Methods
+### Methods
 
-There are 3 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`
+Methods are collections of actions. There are 3 methods supported by Consent-O-Matic. `OPEN_OPTIONS`, `DO_CONSENT`, `SAVE_CONSENT`
 
 All the methods are optional, and if present the methods will be run in the order given above, when a detector is triggered.
 
 Methods take on the form:
-```json
+```
 {
-   "name": "",
-   "action": {}
+   "name": " ... ",
+   "action": { ... }
 }
 ```
 
