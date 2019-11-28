@@ -363,6 +363,8 @@ If `toggleAction` and `matcher` is present on the content config, toggleAction w
 
 ## Full example
 
+Putting it all together, here is a full example of a CMP "myCMP" that has 2 consent categories to toggle.
+
 ```json
 {
    "myCMP": {
