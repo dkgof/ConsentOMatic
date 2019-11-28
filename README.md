@@ -18,6 +18,7 @@
     * [Css](#css)
     * [Checkbox](#checkbox)
 * [Consent](#consent-1)
+* [Full example](#full-example)
 
 ## Introduction
 
@@ -359,3 +360,113 @@ Example:
 `trueAction` and `falseAction` are actions used if consent instead has to be given by pressing one of two buttons, rather than being toggled on/off. These will be run depending on the users selection of consent. If the user has given consent for this category type, the `trueAction` will be run, and `falseAction` will be run if the user has not given consent to this category type.
 
 If `toggleAction` and `matcher` is present on the content config, toggleAction will be used, if one of them is missing, `trueAction`/`falseAction` will be used instead.
+
+## Full example
+
+```json
+{
+   "myCMP": {
+      "detectors": [
+         {
+            "presentMatcher": {
+               "type": "css",
+               "target": {
+                  "selector": "#theCMP"
+               }
+            },
+            "showingMatcher": {
+               "target": {
+                  "selector": "#theCMP.isShowing"
+               }
+            }
+         }
+      ],
+      "methods": [
+         {
+            "name": "OPEN_OPTIONS",
+            "action": {
+               "type": "click",
+               "target": {
+                  "selector": ".button",
+                  "textFilter": "Change settings"
+               }
+            }
+         },
+         {
+            "name": "DO_CONSENT",
+            "action": {
+               "type": "list",
+               "actions": [
+                  {
+                     "type": "click",
+                     "target": {
+                        "selector": ".menu-vendors"
+                     }
+                  },
+                  {
+                     "type": "consent",
+                     "consents": [
+                        {
+                           "type": "A",
+                           "matcher": {
+                              "type": "checkbox",
+                              "parent": {
+                                 "selector": ".vendor-item",
+                                 "textFilter": "Functional cookies"
+                              },
+                              "target": {
+                                 "selector": "input"
+                              }
+                           },
+                           "toggleAction": {
+                              "type": "click",
+                              "parent": {
+                                 "selector": ".vendor-item",
+                                 "textFilter": "Functional cookies"
+                              },
+                              "target": {
+                                 "selector": "label"
+                              }
+                           }
+                        },
+                        {
+                           "type": "F",
+                           "matcher": {
+                              "type": "checkbox",
+                              "parent": {
+                                 "selector": ".vendor-item",
+                                 "textFilter": "Advertisement cookies"
+                              },
+                              "target": {
+                                 "selector": "input"
+                              }
+                           },
+                           "toggleAction": {
+                              "type": "click",
+                              "parent": {
+                                 "selector": ".vendor-item",
+                                 "textFilter": "Advertisement cookies"
+                              },
+                              "target": {
+                                 "selector": "label"
+                              }
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         },
+         {
+            "name": "SAVE_CONSENT",
+            "action": {
+               "type": "click",
+               "target": {
+                  "selector": ".save-consent-btn"
+               }
+            }
+         }
+      ]
+   }
+}
+```
