@@ -1,0 +1,49 @@
+{
+  "": {
+    "detectors": [
+      {
+        "presentMatcher": {
+          "type": "css",
+          "parent": null
+          "target": {
+            "selector": ""
+          }
+        },
+        "showingMatcher": {
+          "type": "css",
+          "parent": null
+          "target": {
+            "selector": ""
+          }
+        }
+      }
+    ],
+    "methods": [
+      {
+        "name": "OPEN_OPTIONS",
+        "action": {
+          "type": "click",
+          "parent": null,
+          "target": {
+            "selector": ""
+          }
+        }
+      },
+      {
+        "name": "DO_CONSENT",
+        "action": {
+        }
+      },
+      {
+        "name": "SAVE_CONSENT",
+        "action": {
+          "type": "click",
+          "parent": null,
+          "target": {
+            "selector": ""
+          }
+        }
+      }
+    ]
+  }
+}
