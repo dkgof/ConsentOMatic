@@ -4,14 +4,14 @@
       {
         "presentMatcher": {
           "type": "css",
-          "parent": null
+          "parent": null,
           "target": {
             "selector": ".portal-cookieoptout"
           }
         },
         "showingMatcher": {
           "type": "css",
-          "parent": null
+          "parent": null,
           "target": {
             "selector": ".portal-cookieoptout"
           }
