@@ -1,0 +1,57 @@
+{
+  "umf.dk": {
+    "detectors": [
+      {
+        "presentMatcher": {
+          "type": "css",
+          "parent": null
+          "target": {
+            "selector": ".portal-cookieoptout"
+          }
+        },
+        "showingMatcher": {
+          "type": "css",
+          "parent": null
+          "target": {
+            "selector": ".portal-cookieoptout"
+          }
+        }
+      }
+    ],
+    "methods": [
+      {
+        "name": "OPEN_OPTIONS",
+        "action": {
+          "type": "click",
+          "parent": null,
+          "target": {
+            "selector": ""
+          }
+        }
+      },
+      {
+        "name": "DO_CONSENT",
+        "action": {
+          "type": "consent",
+          "consents": [
+            {
+              "type": "C",
+              "trueAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".portal-cookieoptout a[href='./#cookieoptout']"
+                }
+              },
+              "falseAction": {
+                "type": "click",
+                "target": {
+                  "selector": ".portal-cookieoptout a[href='./#cookieoptin']"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
